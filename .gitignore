@@ -32,3 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 /todo-list-application/src/main/webapp/dist/
+/todo-list-ui/.angular/

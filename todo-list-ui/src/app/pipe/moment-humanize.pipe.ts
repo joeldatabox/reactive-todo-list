@@ -9,6 +9,8 @@ import {Moment} from 'moment';
 export class MomentHumanizePipe implements PipeTransform {
 
   transform(value: Moment): string {
+
+    // @ts-ignore
     return value ? DateUtils.toDuration(value).humanize() : null;
   }
 

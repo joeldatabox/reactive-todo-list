@@ -15,9 +15,10 @@ import {Item} from '../model/item';
 })
 export class ItemBoardComponent implements OnInit, OnDestroy {
 
+  // @ts-ignore
   private eventSource: EventSource;
 
-  ItemStatus = ItemStatus;
+  ItemStatus:any = ItemStatus;
   statusItemsMap = new Map<string, Item[]>();
   actionInProgress = false;
   dragAndDropInProgress = false;
@@ -65,6 +66,7 @@ export class ItemBoardComponent implements OnInit, OnDestroy {
       }))
       .subscribe(item => {
 
+        // @ts-ignore
         this.statusItemsMap.get(item.status).push(item);
       });
   }
@@ -141,7 +143,8 @@ export class ItemBoardComponent implements OnInit, OnDestroy {
      this.removeItem(item.id);
 
      // Add it to the correct status column
-     this.statusItemsMap.get(item.status).push(item);
+     // @ts-ignore
+    this.statusItemsMap.get(item.status).push(item);
   }
 
   private removeItem(itemId: string) {

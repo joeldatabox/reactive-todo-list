@@ -62,22 +62,25 @@ export class ItemService {
   }
 
   updateDescription(id: string, version: number, description: string): Observable<any> {
-    return this.http.patch<void>(`${this.baseUrl}/${id}`, {description}, ItemService.buildOptions(version));
+    return this.http.put<void>(`${this.baseUrl}/${id}`, {description}, ItemService.buildOptions(version));
   }
 
   updateStatus(id: string, version: number, status: ItemStatus): Observable<any> {
-    return this.http.patch<void>(`${this.baseUrl}/${id}`, {status}, ItemService.buildOptions(version));
+    return this.http.put<void>(`${this.baseUrl}/${id}`, {status}, ItemService.buildOptions(version));
   }
 
+  // @ts-ignore
   listenToEvents(onSaved: (event) => void, onDeleted: (event) => void): EventSource {
     const eventSource = new EventSource(`${this.baseUrl}/events`);
 
     // Handle the creation and the update of items
+    // @ts-ignore
     eventSource.addEventListener('ItemSaved', (event: MessageEvent) => {
       onSaved(JSON.parse(event.data));
     });
 
     // Handle the deletion of items
+    // @ts-ignore
     eventSource.addEventListener('ItemDeleted', (event: MessageEvent) => {
       onDeleted(JSON.parse(event.data));
     });

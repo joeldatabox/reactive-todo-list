@@ -13,6 +13,8 @@ export class ItemSaveDialogComponent {
 
   constructor(private readonly dialogRef: MatDialogRef<ItemSaveDialogComponent>,
               @Inject(MAT_DIALOG_DATA) readonly item: Item) {
+
+    // @ts-ignore
     this.description = item ? item.description : undefined;
   }
 

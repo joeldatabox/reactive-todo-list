@@ -39,6 +39,12 @@ public class ItemController {
         return itemService.findAll();
     }
 
+    @ApiOperation("Get a the list of items")
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
+    public Flux<ItemResource> getAllItemsJson() {
+        return itemService.findAll();
+    }
+
     @ApiOperation("Get the item event stream")
     @GetMapping(value = "events")
     public Flux<ServerSentEvent<Event>> getEventStream() {

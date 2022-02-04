@@ -92,6 +92,8 @@ export class HttpErrorsInterceptor implements HttpInterceptor {
               if (error.message) {
                 console.error(error.message);
               }
+
+              // @ts-ignore
               actionType = this.errors[error.status].http;
             }
           }

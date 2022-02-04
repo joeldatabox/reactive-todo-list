@@ -14,6 +14,7 @@ import {DateUtils} from '../utils/date-utils';
 })
 export class ItemComponent {
 
+  // @ts-ignore
   @Input() item: Item;
   @Input() readonly = false;
   @Output() itemDeleted = new EventEmitter();

@@ -32,6 +32,7 @@
                 <configuration>
                   <arguments>
                     <argument>install</argument>
+                    <argument>--force</argument>
                   </arguments>
                   <executable>npm</executable>
                 </configuration>
